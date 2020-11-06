@@ -11,19 +11,16 @@ const templatesDir = path.resolve(__dirname, "../templates");
 const render = employees => {
   const html = [];
 
-  // dots
-  html.push(employees
+  html.push(...employees
     .filter(employee => employee.getRole() === "Manager")
     .map(manager => renderManager(manager))
   );
-  html.push(employees
+  html.push(...employees
     .filter(employee => employee.getRole() === "Engineer")
     .map(engineer => renderEngineer(engineer))
   );
-  html.push(employees
+  html.push(...employees
     .filter(employee => employee.getRole() === "Intern")
-
-    // problem to renderIntern and intern
     .map(intern => renderIntern(intern))
   );
 
@@ -65,8 +62,6 @@ const renderIntern = intern => {
   template = replacePlaceholders(template, "role", intern.getRole());
   template = replacePlaceholders(template, "email", intern.getEmail());
   template = replacePlaceholders(template, "id", intern.getId());
-
-  // problem getSchool
   template = replacePlaceholders(template, "school", intern.getSchool());
   return template;
 };

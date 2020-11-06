@@ -32,6 +32,7 @@ const teamPositions = function () {
 
 const specificQuestions = function () {
     switch (role) {
+
         case "Manager":
             inquirer.prompt([
                 {
@@ -127,23 +128,24 @@ const regularQuestions = function () {
     })
 }
 
-const newPositions = function (){
+const newPositions = function () {
     switch (role) {
+
         case "Manager":
             employees.push(new Manager(name, id, email, officeNumber));
-    
+
             teamPositions();
             break;
-    
+
         case "Engineer":
             employees.push(new Engineer(name, id, email, github));
-    
+
             teamPositions();
             break;
-    
+
         case "Intern":
             employees.push(new Intern(name, id, email, school));
-    
+
             teamPositions();
             break;
     }
